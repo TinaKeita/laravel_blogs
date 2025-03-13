@@ -99,7 +99,7 @@ a:active {
     color: var(--input-text);
 }
 
-input, textarea {
+input, textarea, select {
     width: auto;
     padding: 10px;
     background-color: var(--input-bg);
@@ -132,3 +132,16 @@ button:hover {
     display: flex; 
     gap: 10px; 
   }
+
+  .btn-link, .btn-link:used {
+    display: inline-block; 
+    background-color: var(--highlight);
+    color: var(--text);
+    padding: 8px 13px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 15px;
+    text-align: center;
+}

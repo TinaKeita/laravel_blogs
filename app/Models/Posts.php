@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
-    protected $fillable = ["content"];
+    protected $fillable = ["content", "category_id"];
+
+    
 }
