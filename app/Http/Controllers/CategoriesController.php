@@ -1,22 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Categories;
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Categories::all();
+        $categories = Category::all();
         return view("categories.index", compact("categories"));
     }
 
-    public function show(Categories $categories) {
+    public function show(Category $categories) {
+        $posts = Post::all();
         return view("categories.show", compact("categories"));
     }
 
-    public function create(Categories $categories) {
+    public function create(Category $categories) {
         return view("categories.create", compact("categories"));
     }
 
@@ -24,17 +26,17 @@ class CategoriesController extends Controller
         $validated = $request->validate([
             "content" => ["required", "max:255"]
           ]);
-        Categories::create([
+        Category::create([
             "content" => $validated["content"],
           ]);
         return redirect("/categories");
     }
 
-    public function edit(Categories $categories) {
+    public function edit(Category $categories) {
         return view("categories.edit", compact("categories"));
     }
     
-    public function update(Request $request, Categories $categories) {
+    public function update(Request $request, Category $categories) {
         $validated = $request->validate([
             "content" => ["required", "max:255"],
           ]);
@@ -43,7 +45,7 @@ class CategoriesController extends Controller
         return redirect("/categories");
     }
 
-    public function destroy(Categories $categories) {
+    public function destroy(Category $categories) {
         $categories->delete();
         return redirect("/categories");
     }

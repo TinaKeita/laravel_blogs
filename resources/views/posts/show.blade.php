@@ -3,7 +3,7 @@
     {{ $posts->content }}
   </x-slot:title>
   <h1>{{ $posts->content }}</h1>
-  <!-- <p>{{ $categories->content }}</p> -->
+  <p>{{ $posts->category->content }}</p> 
 
   <div class="button-container">
   <a href="/posts/{{ $posts->id }}/edit" class="btn-link" class="no-visited-link" ">Labot</a> 

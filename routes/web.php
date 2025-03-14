@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoriesController;
 
 Route::get('/', function () {return view('welcome');});
 
 // Posts
-Route::get('/posts', [PostsController::class, 'index']);
-Route::get('/posts/create', [PostsController::class, 'create']);
-Route::post('/posts', [PostsController::class, 'store']);
-Route::get('/posts/{posts}', [PostsController::class, 'show']);
-Route::get('/posts/{posts}/edit', [PostsController::class, 'edit']);
-Route::put('/posts/{posts}', [PostsController::class, 'update']);
-Route::delete('/posts/{posts}', [PostsController::class, 'destroy']);
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/{posts}', [PostController::class, 'show']);
+Route::get('/posts/{posts}/edit', [PostController::class, 'edit']);
+Route::put('/posts/{posts}', [PostController::class, 'update']);
+Route::delete('/posts/{posts}', [PostController::class, 'destroy']);
 
 // Categories
 Route::get('/categories', [CategoriesController::class, 'index']);
