@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {return view('welcome');});
 
@@ -23,3 +24,7 @@ Route::get('/categories/{categories}', [CategoriesController::class, 'show']);
 Route::get('/categories/{categories}/edit', [CategoriesController::class, 'edit']);
 Route::put('/categories/{categories}', [CategoriesController::class, 'update']);
 Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy']);
+
+//comments
+Route::get('/comments/create', [CommentController::class, 'create']);
+Route::post('/comments', [CommentController::class, 'store']);
