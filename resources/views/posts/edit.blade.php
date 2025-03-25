@@ -12,6 +12,15 @@
         @error("content")
             <p>{{ $message }}</p>
         @enderror
+
+        Kategorija:<br>
+        <select name="category_id">
+                <option value="0">Bez kategorijas</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->content }}</option>
+                @endforeach
+        </select><br><br>
         
         <button>Saglabāt</button>
+</form>
 </x-layout>

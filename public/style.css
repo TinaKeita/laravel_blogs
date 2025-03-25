@@ -37,6 +37,7 @@
     grid-template-columns: 1fr 3fr;
     gap: 5px;
     padding: 5px;
+
 }
 .container > div.header {
     grid-area: header;
@@ -46,8 +47,13 @@
     grid-area: input;
 }
 .container > div.comment {
-    grid-area: comment;
-  }
+    grid-area: comments;     
+    border-left: 2px solid black;
+    height: auto;
+    padding: 10px; 
+
+}
+
 /* Body */
 body {
     font-family: 'Poppins', sans-serif;    
@@ -152,20 +158,27 @@ button:hover {
 .button-container {
     display: flex; 
     gap: 10px; 
+    justify-content: center;
     text-align: center;
   }
 
-  .btn-link, .btn-link:used {
+.btn-link {
     display: inline-block; 
     background-color: var(--highlight);
     color: var(--text);
-    padding: 8px 13px;
+    border: none;
+    padding: 10px 15px; /* Same as button */
     border-radius: 5px;
-    text-decoration: none;
     cursor: pointer;
     transition: background 0.2s;
     font-size: 15px;
     text-align: center;
+    text-decoration: none; /* Remove underline from links */
+}
+
+
+.btn-link:visited {
+    color: var(--text)
 }
 
 .box{

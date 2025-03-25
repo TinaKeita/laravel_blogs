@@ -35,14 +35,19 @@ class PostController extends Controller
         return redirect("/posts");
     }
     public function edit(Post $posts) {
-        return view("posts.edit", compact("posts"));
+        $categories = Category::all();
+        return view("posts.edit", compact("posts", "categories"));
     }
     
     public function update(Request $request, Post $posts) {
         $validated = $request->validate([
             "content" => ["required", "max:255"],
+            "category_id" => []
           ]);
+          
         $posts->content = $validated["content"];
+        $posts->category_id = $validated["category_id"];
+        
         $posts->save();
         return redirect("/posts");
     }

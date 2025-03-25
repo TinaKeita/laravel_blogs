@@ -5,7 +5,7 @@
 <div class="container">
   <div class="header">
     <h1>{{ $posts->content }}</h1>
-      <p>Kategorija: {{ $posts->category->content }}</p> 
+      <p>Kategorija: {{ $posts->category->content ?? "" }}</p> 
 
     <div class="button-container">
       <a href="/posts/{{ $posts->id }}/edit" class="btn-link" class="no-visited-link" ">Labot</a> 
@@ -48,6 +48,7 @@
 </div>
 
 <div class="comment">
+  
   @foreach ($posts->comments as $comment)
         <h3>{{ $comment->name }}</h3>
         <p>{{ $comment->created_at }}</p>
