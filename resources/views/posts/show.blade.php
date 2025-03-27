@@ -50,10 +50,23 @@
 <div class="comment">
   
   @foreach ($posts->comments as $comment)
+      <div class="date">
         <h3>{{ $comment->name }}</h3>
-        <p>{{ $comment->created_at }}</p>
-        <p>{{ $comment->comment }}</p>
+        <p>({{ $comment->created_at }})</p>
+      </div>
+        <p class="com">{{ $comment->comment }}</p><br>
+        
+      <div class="end_com">
+        <a href="/comments/{{ $comment->id }}/edit" class="small_link">Labot</a>
+                <form method="POST" action="/comments/{{ $comment->id }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="small_button">Dzēst</button>
+                </form>
+      </div>
+      <hr>
   @endforeach
+
 </div>
 </div>
 </x-layout>

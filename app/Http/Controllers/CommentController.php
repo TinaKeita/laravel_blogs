@@ -23,4 +23,21 @@ class CommentController extends Controller
         ]);
         return redirect("/posts/" . $validated["post_id"]);
     }
+    public function edit(Comment $comment) {
+        return view("comments/edit", compact("comment"));
+    }
+
+    public function update(Request $request, Comment $comment) {
+        $validated = $request->validate([
+            "comment" => ["required"]
+        ]);
+        $comment->comment = $validated["comment"];
+        $comment->save();
+        return redirect("/posts");;
+    }
+    
+    public function destroy(Comment $comment) {
+        $comment->delete();
+        return redirect("/comment");
+    }
 }

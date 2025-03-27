@@ -3,7 +3,7 @@
     {{ $categories->content }}
   </x-slot:title>
   <h1>{{ $categories->content }}</h1>
-  <h3>Pieejamies posts:</h3>
+  <h3>Pieejamie posts:</h3>
   
   @foreach ($categories->posts as $post)
         <li>{{ $post->content }}</li>
@@ -11,7 +11,7 @@
 
   <br>
   <div class="button-container">
-  <a href="/categories/{{ $categories->id }}/edit" class="no-visited-link">Labot</a> 
+  <a href="/categories/{{ $categories->id }}/edit" class="btn-link" class="no-visited-link">Labot</a> 
  
 
   <form method="POST" action="/categories/{{ $categories->id }}">
