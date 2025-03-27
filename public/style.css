@@ -213,6 +213,9 @@ button:hover {
     text-decoration: none;
     padding: 10px 10px;
  }
+ .small_link:visited {
+    color: var(--text);
+}
 .small_button{
     background-color: var(--highlight);
     color: var(--text);
@@ -228,6 +231,4 @@ button:hover {
     gap: 10px;
     align-items: baseline; 
 }
-hr{
-    color: black;
-}
+

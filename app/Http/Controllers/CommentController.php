@@ -29,11 +29,13 @@ class CommentController extends Controller
 
     public function update(Request $request, Comment $comment) {
         $validated = $request->validate([
+            "name" => ["required"],
             "comment" => ["required"]
         ]);
+        $comment->name = $validated["name"];
         $comment->comment = $validated["comment"];
         $comment->save();
-        return redirect("/posts");;
+        return redirect("/posts");
     }
     
     public function destroy(Comment $comment) {
